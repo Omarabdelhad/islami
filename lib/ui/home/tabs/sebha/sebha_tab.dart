@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_c20/core/resources/assets_manager.dart';
 import 'package:islami_c20/core/resources/colors_manager.dart';
+import 'package:islami_c20/ui/home/tabs/sebha/sebha_style.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -58,60 +59,11 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
             SizedBox(height: 16),
             Expanded(
-              child: Stack(
-                children: [
-                  Positioned(
-                    top: 0,
-                    bottom: 359,
-                    right: 0,
-                    left: 0,
-                    child: Image.asset(AssetsManager.sebhaheader),
-                  ),
-
-                  Positioned(
-                    top: 70,
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-
-                    child: GestureDetector(
-                      onTap: incrementconter,
-                      child: AnimatedRotation(
-                        turns: turns,
-                        duration: Duration(milliseconds: 300),
-                        child: Image.asset(AssetsManager.sebhabody),
-                      ),
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const SizedBox(height: 90),
-                          Text(
-                            azkar[zkrIndex],
-                            style: TextStyle(
-                              fontSize: 36,
-                              fontWeight: .w700,
-                              color: ColorsManager.whiteColor,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
-
-                          Text(
-                            '$counter',
-                            style: TextStyle(
-                              fontSize: 36,
-                              fontWeight: .w700,
-                              color: ColorsManager.whiteColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+              child: SebhaStyle(
+                counter: counter,
+                currentZkr: azkar[zkrIndex],
+                turns: turns,
+                onTap: incrementconter,
               ),
             ),
           ],
