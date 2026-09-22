@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:islami_c20/core/resources/colors_manager.dart';
 import 'package:islami_c20/core/resources/routes_manager.dart';
+import 'package:islami_c20/core/resources/shared_pref.dart';
 import 'package:islami_c20/model/on_boarding_model.dart';
 
 class OnBoardingBottomRow extends StatelessWidget {
@@ -66,6 +67,7 @@ class OnBoardingBottomRow extends StatelessWidget {
                     context,
                     RoutesManager.homeRouteName,
                   );
+                  SharedPref.setBool(key: 'isFirstTime', value: false);
                 }
               : () => controller.nextPage(
                   duration: Duration(milliseconds: 300),
